@@ -166,6 +166,10 @@ export function DeleteTask(arg1, arg2, arg3) {
   return window['go']['main']['App']['DeleteTask'](arg1, arg2, arg3);
 }
 
+export function DeleteTrackerConnection(arg1) {
+  return window['go']['main']['App']['DeleteTrackerConnection'](arg1);
+}
+
 export function DetachSession(arg1) {
   return window['go']['main']['App']['DetachSession'](arg1);
 }
@@ -456,6 +460,14 @@ export function GetTerminalWSPort() {
 
 export function GetTerminalWSToken() {
   return window['go']['main']['App']['GetTerminalWSToken']();
+}
+
+export function GetTrackerBinding(arg1, arg2) {
+  return window['go']['main']['App']['GetTrackerBinding'](arg1, arg2);
+}
+
+export function GetTrackerConnections() {
+  return window['go']['main']['App']['GetTrackerConnections']();
 }
 
 export function GetTrashItems() {
@@ -806,6 +818,10 @@ export function SaveSettings(arg1, arg2) {
   return window['go']['main']['App']['SaveSettings'](arg1, arg2);
 }
 
+export function SaveTrackerConnection(arg1) {
+  return window['go']['main']['App']['SaveTrackerConnection'](arg1);
+}
+
 export function SearchSessionFileContents(arg1, arg2, arg3, arg4, arg5, arg6) {
   return window['go']['main']['App']['SearchSessionFileContents'](arg1, arg2, arg3, arg4, arg5, arg6);
 }
@@ -870,6 +886,10 @@ export function SetSessionColor(arg1, arg2, arg3, arg4, arg5) {
   return window['go']['main']['App']['SetSessionColor'](arg1, arg2, arg3, arg4, arg5);
 }
 
+export function SetSessionTrackerBinding(arg1, arg2, arg3, arg4, arg5) {
+  return window['go']['main']['App']['SetSessionTrackerBinding'](arg1, arg2, arg3, arg4, arg5);
+}
+
 export function SetTabColor(arg1, arg2, arg3, arg4, arg5) {
   return window['go']['main']['App']['SetTabColor'](arg1, arg2, arg3, arg4, arg5);
 }
@@ -896,6 +916,10 @@ export function SetTabTerminalTheme(arg1, arg2, arg3, arg4) {
 
 export function SetTabViewBar(arg1, arg2, arg3, arg4) {
   return window['go']['main']['App']['SetTabViewBar'](arg1, arg2, arg3, arg4);
+}
+
+export function SetTrackerBinding(arg1, arg2, arg3, arg4) {
+  return window['go']['main']['App']['SetTrackerBinding'](arg1, arg2, arg3, arg4);
 }
 
 export function SetWindowAutoYes(arg1, arg2, arg3, arg4) {
@@ -1042,6 +1066,10 @@ export function TestServerConnection(arg1, arg2, arg3) {
   return window['go']['main']['App']['TestServerConnection'](arg1, arg2, arg3);
 }
 
+export function TestTrackerConnection(arg1) {
+  return window['go']['main']['App']['TestTrackerConnection'](arg1);
+}
+
 export function ToggleAutoYes(arg1, arg2) {
   return window['go']['main']['App']['ToggleAutoYes'](arg1, arg2);
 }
@@ -1056,6 +1084,22 @@ export function ToggleGroupCollapse(arg1, arg2) {
 
 export function ToggleSubtask(arg1, arg2, arg3, arg4) {
   return window['go']['main']['App']['ToggleSubtask'](arg1, arg2, arg3, arg4);
+}
+
+export function TrackerGetIssue(arg1, arg2, arg3) {
+  return window['go']['main']['App']['TrackerGetIssue'](arg1, arg2, arg3);
+}
+
+export function TrackerListIssues(arg1, arg2) {
+  return window['go']['main']['App']['TrackerListIssues'](arg1, arg2);
+}
+
+export function TrackerListScopes(arg1) {
+  return window['go']['main']['App']['TrackerListScopes'](arg1);
+}
+
+export function TrackerSendIssueToAgent(arg1, arg2, arg3, arg4) {
+  return window['go']['main']['App']['TrackerSendIssueToAgent'](arg1, arg2, arg3, arg4);
 }
 
 export function TrashedWorktree(arg1) {

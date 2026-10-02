@@ -8,6 +8,8 @@
   import Diff from './Diff.svelte';
   import FileBrowser from './FileBrowser.svelte';
   import TaskPanel from './TaskPanel.svelte';
+  import TrackerPanel from './TrackerPanel.svelte';
+  import { trackerBinding } from '../../stores/tracker';
   import ForkDialog from '../Dialogs/ForkDialog.svelte';
   import CheckpointsDialog from '../Dialogs/CheckpointsDialog.svelte';
   import { activities } from '../../stores/activities';
@@ -1045,12 +1047,18 @@
              view. That question is only asked when the setting is on, so the
              panel costs nothing while it is off. -->
         <div class="view-panel" class:active={activeView === 'tasks'}>
-          <TaskPanel active={visible && activeView === 'tasks'} on:taskSent={(event) => {
-            // A task assigned to a tab was typed into that tab; show it there
-            // rather than in whichever tab happened to be selected.
-            if (typeof event.detail?.windowIdx === 'number') selectWindow(event.detail.windowIdx);
-            selectView('terminal');
-          }} />
+          <!-- A project bound to an external tracker reads its work from
+               there; the built-in list is not shown beside it. -->
+          {#if $trackerBinding}
+            <TrackerPanel active={visible && activeView === 'tasks'} on:taskSent={() => selectView('terminal')} />
+          {:else}
+            <TaskPanel active={visible && activeView === 'tasks'} on:taskSent={(event) => {
+              // A task assigned to a tab was typed into that tab; show it there
+              // rather than in whichever tab happened to be selected.
+              if (typeof event.detail?.windowIdx === 'number') selectWindow(event.detail.windowIdx);
+              selectView('terminal');
+            }} />
+          {/if}
         </div>
         <div class="view-panel" class:active={activeView === 'browser'}>
           <FileBrowser active={visible && activeView === 'browser'} on:close={() => selectView('terminal')} />

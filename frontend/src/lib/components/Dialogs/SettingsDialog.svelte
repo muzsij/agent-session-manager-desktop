@@ -1199,6 +1199,20 @@
             </div>
           </div>
 
+          <div class="settings-section">
+            <h3>{$t('trackers.managerTitle')}</h3>
+
+            <div class="setting-item">
+              <span class="setting-info">
+                <span class="setting-label">{$t('trackers.managerTitle')}</span>
+                <span class="setting-desc">{$t('settings.trackersDesc')}</span>
+              </span>
+              <button class="action-btn" on:click={() => dispatch('openTrackers')}>
+                {$t('settings.trackersAction')}
+              </button>
+            </div>
+          </div>
+
           <!-- General rather than Maintenance: this switches a view on and off,
                like the other toggles on this tab. Maintenance is for one-off
                actions (export, update check), not for preferences. -->

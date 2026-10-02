@@ -4,6 +4,7 @@ import {main} from '../models';
 import {whatsnew} from '../models';
 import {session} from '../models';
 import {remote} from '../models';
+import {tracker} from '../models';
 
 export function AcceptServerHostKey(arg1:string,arg2:string):Promise<void>;
 
@@ -86,6 +87,8 @@ export function DeleteSubtask(arg1:string,arg2:string,arg3:string,arg4:string):P
 export function DeleteTab(arg1:string,arg2:number,arg3:string):Promise<void>;
 
 export function DeleteTask(arg1:string,arg2:string,arg3:string):Promise<void>;
+
+export function DeleteTrackerConnection(arg1:string):Promise<Array<main.TrackerConnectionInfo>>;
 
 export function DetachSession(arg1:string):Promise<void>;
 
@@ -232,6 +235,10 @@ export function GetTasksByStatus(arg1:string,arg2:string):Promise<Array<main.Tas
 export function GetTerminalWSPort():Promise<number>;
 
 export function GetTerminalWSToken():Promise<string>;
+
+export function GetTrackerBinding(arg1:string,arg2:string):Promise<main.TrackerBindingInfo>;
+
+export function GetTrackerConnections():Promise<Array<main.TrackerConnectionInfo>>;
 
 export function GetTrashItems():Promise<Array<main.TrashItemInfo>>;
 
@@ -407,6 +414,8 @@ export function SaveSessionTemplate(arg1:string,arg2:string,arg3:string,arg4:str
 
 export function SaveSettings(arg1:main.SettingsInfo,arg2:string):Promise<void>;
 
+export function SaveTrackerConnection(arg1:main.TrackerConnectionRequest):Promise<Array<main.TrackerConnectionInfo>>;
+
 export function SearchSessionFileContents(arg1:string,arg2:string,arg3:boolean,arg4:boolean,arg5:number,arg6:string):Promise<session.ContentSearchResult>;
 
 export function SearchSessionFileIndex(arg1:string,arg2:boolean,arg3:number,arg4:string):Promise<session.FileIndex>;
@@ -439,6 +448,8 @@ export function SetQuickJumpLabel(arg1:string,arg2:number,arg3:string,arg4:strin
 
 export function SetSessionColor(arg1:string,arg2:string,arg3:string,arg4:boolean,arg5:string):Promise<void>;
 
+export function SetSessionTrackerBinding(arg1:string,arg2:string,arg3:string,arg4:string,arg5:string):Promise<void>;
+
 export function SetTabColor(arg1:string,arg2:number,arg3:string,arg4:string,arg5:string):Promise<void>;
 
 export function SetTabFontSize(arg1:string,arg2:number,arg3:number,arg4:string):Promise<void>;
@@ -452,6 +463,8 @@ export function SetTabStatusLineVisibility(arg1:string,arg2:number,arg3:boolean,
 export function SetTabTerminalTheme(arg1:string,arg2:number,arg3:string,arg4:string):Promise<void>;
 
 export function SetTabViewBar(arg1:string,arg2:number,arg3:number,arg4:string):Promise<void>;
+
+export function SetTrackerBinding(arg1:string,arg2:string,arg3:string,arg4:string):Promise<void>;
 
 export function SetWindowAutoYes(arg1:string,arg2:number,arg3:boolean,arg4:string):Promise<void>;
 
@@ -525,6 +538,8 @@ export function TaskMasterUpdateTaskDirect(arg1:string,arg2:string,arg3:string,a
 
 export function TestServerConnection(arg1:string,arg2:string,arg3:string):Promise<main.ConnectionTestResult>;
 
+export function TestTrackerConnection(arg1:main.TrackerConnectionRequest):Promise<string>;
+
 export function ToggleAutoYes(arg1:string,arg2:string):Promise<void>;
 
 export function ToggleFavorite(arg1:string,arg2:string):Promise<void>;
@@ -532,6 +547,14 @@ export function ToggleFavorite(arg1:string,arg2:string):Promise<void>;
 export function ToggleGroupCollapse(arg1:string,arg2:string):Promise<void>;
 
 export function ToggleSubtask(arg1:string,arg2:string,arg3:string,arg4:string):Promise<void>;
+
+export function TrackerGetIssue(arg1:string,arg2:string,arg3:string):Promise<tracker.Issue>;
+
+export function TrackerListIssues(arg1:string,arg2:string):Promise<Array<tracker.Issue>>;
+
+export function TrackerListScopes(arg1:string):Promise<Array<tracker.Scope>>;
+
+export function TrackerSendIssueToAgent(arg1:string,arg2:string,arg3:string,arg4:string):Promise<void>;
 
 export function TrashedWorktree(arg1:string):Promise<main.WorktreeInfo>;
 

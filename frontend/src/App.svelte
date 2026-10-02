@@ -173,6 +173,7 @@
   import CommandPickerDialog from './lib/components/Dialogs/CommandPickerDialog.svelte';
   import CommandManagerDialog from './lib/components/Dialogs/CommandManagerDialog.svelte';
   import ServerManagerDialog from './lib/components/Dialogs/ServerManagerDialog.svelte';
+  import TrackerManagerDialog from './lib/components/Dialogs/TrackerManagerDialog.svelte';
   import SessionTemplateDialog from './lib/components/Dialogs/SessionTemplateDialog.svelte';
   import SessionColorDialog from './lib/components/Dialogs/SessionColorDialog.svelte';
   import ConfirmDialog from './lib/components/Dialogs/ConfirmDialog.svelte';
@@ -445,6 +446,7 @@
   let showCommandPicker = false;
   let showCommandManager = false;
   let showServerManager = false;
+  let showTrackerManager = false;
   /** The picker closes itself before handing over to the editor. */
   function openCommandManager() {
     showCommandManager = true;
@@ -491,7 +493,7 @@
     showHelpDialog || showFeedbackDialog || showUpdateDialog || showWhatsNew || showImportDialog || showFileImportDialog ||
     showSettingsDialog || showRecoveryCenter || showCommandPalette || showColorDialog || showDeleteConfirm ||
     showLogDialog || showQuickJump || showGitHistory || quickJumpPrompt || quickJumpNaming ||
-    showCommandPicker || showCommandManager || showServerManager || showTemplateDialog ||
+    showCommandPicker || showCommandManager || showServerManager || showTrackerManager || showTemplateDialog ||
     showQuitConfirm || showStopDialog || showStartDialog || $projectTasksOpen ||
     showResumeChoice || showResumeSessionPicker || showInterruptedWork;
   $: if (prevAnyDialogOpen && !anyDialogOpen) {
@@ -1931,6 +1933,7 @@
     on:openImport={() => { showSettingsDialog = false; showImportDialog = true; }}
     on:openFileImport={() => { showSettingsDialog = false; showFileImportDialog = true; }}
     on:openServers={() => { showSettingsDialog = false; showServerManager = true; }}
+    on:openTrackers={() => { showSettingsDialog = false; showTrackerManager = true; }}
     on:exportSessions={exportSessions}
   />
   <RecoveryCenterDialog bind:show={showRecoveryCenter} />
@@ -1943,6 +1946,7 @@
   />
   <CommandManagerDialog bind:show={showCommandManager} />
   <ServerManagerDialog bind:show={showServerManager} />
+  <TrackerManagerDialog bind:show={showTrackerManager} />
   <SessionTemplateDialog bind:show={showTemplateDialog} useTemplateId={templateToUse} />
   <!-- Opened from the tab bar's colour button. The sidebar's context-menu
        entry opens its own instance from SessionItem, which is rendered in
